@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0d1b2f;
+  --bg-gradient: linear-gradient(180deg, #0c1929 0%, #0d1b2f 58%, #122d45 100%);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.10);
+  --surface-muted: #1a2d42;
+  --ink: #f0f4fb;
+  --ink-2: #d4e3f5;
+  --muted: #8fa8c4;
+  --subtle: #5d7a9a;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(172, 198, 233, 0.40);
+  --accent: #acc6e9;
+  --accent-hover: #c8dcf5;
+  --success: #5fc98a;
+  --danger: #e8627a;
+  --agent-teal: #38c9b9;
+  --agent-amber: #f5a623;
+  --agent-violet: #9b7eff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  min-height: 100dvh;
+  color: var(--ink);
+}
+
+.display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+/* Tabular numbers for all financial values */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Glass card surface */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.glass-strong {
+  background: var(--surface-strong);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+/* Status badge pulse */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.04) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+/* Spectral accent strip (used sparingly) */
+.accent-strip {
+  background: linear-gradient(90deg, #38c9b9 0%, #acc6e9 50%, #9b7eff 100%);
+  height: 2px;
+  border-radius: 1px;
+}
